@@ -54,7 +54,23 @@ Filters the data (spatial filtering only above Greenland, and icesheet filtering
 python process_products.py
 ```
 
-## Data exploration
+## Input parameters
+We used 4 customized features: 2 based on the radiometer measurements and 2
+from the altimetry measurements. Those features are:
+- Average temperature brightness: average of the temperature brightness between the 2 radiometer frequencies (23.8 and 36.5 GHz):
+
+<p align="center"><b>tb<sub><b>avg</b></sub> = (tb<sub>238</sub> + tb<sub>365</sub>)/2</b>.</p>
+- Temperature brightness ratio: ratio of temperature brightness between the 2 radiometer frequencies (23.8 and 36.5 GHz):
+
+<p align="center"><b>tb<sub>ratio</sub> = (tb<sub>238</sub>-tb<sub>365</sub>)/(tb<sub>238</sub>+tb<sub>365</sub>)</b></p>
+- The backscatter coefficient Sigma 0 for the Ku altimetry band:
+
+<p align="center"><b>σ<sub>Ku</sub></b></p>
+- Difference in backscatter (Sigma_0) between the Ku and C band:
+
+<p align="center"><b>Δ<sub>σ</sub> = σ<sub>Ku</sub> - σ<sub>C</sub></b></p>
+
+Note that the original paper worked with Envisat data where S band was used instead of C band.
 
 Maps of input parameters:
 
