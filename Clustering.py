@@ -258,5 +258,23 @@ fig.savefig('figures/confusion_mat_new_class.jpg', bbox_inches='tight',dpi=120)
 
 
 # %% maps
+def drawCycle(dataframe, cycle, cluster_membership_reimpl,tag):
+    fig = plt.figure(figsize=(10, 8))
+    plt.suptitle("Map of classes on cycle %d. (from %s to %s)" % (
+        cycle,
+        toolbox.ESA_time_to_datetime(dataframe[dataframe["cycle"] == cycle]["time_01"].min()).strftime("%b %Y"),
+        toolbox.ESA_time_to_datetime(dataframe[dataframe["cycle"] == cycle]["time_01"].max()).strftime("%b %Y")
+    ))
+    plt.subplot(1, 2, 1)
+    plt.title("Reimplementation")
+    toolbox.drawGreenland(dataframe[dataframe["cycle"] == cycle], "lon_01", "lat_01", 
+                          cluster_membership_reimpl[dataframe["cycle"] == cycle],
+                          'New classes (with waveform)')
+    plt.subplot(1, 2, 2)
+    plt.title("Old")
+    toolbox.drawGreenland(dataframe[dataframe["cycle"] == cycle], "lon_01", 
+                          "lat_01", "ice_sheet_snow_facies_flag_01_ku",
+                          'Original classes')
+    fig.savefig('figures/map_classification_'+tag+'_'+str(cycle)+'.jpg', bbox_inches='tight',dpi=120)
 drawCycle(df2017_filtered, 13, cluster_membership_improved,'improved')
 drawCycle(df2017_filtered, 20, cluster_membership_improved,'improved')
