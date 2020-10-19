@@ -248,11 +248,13 @@ cntr
 
 # %% Confusion matrix
 mat = confusion_matrix(cluster_membership_improved, df2017_filtered["ice_sheet_snow_facies_flag_01_ku"] - 1, normalize="true")
+
+fig = plt.figure(figsize=(10, 8))
 plt.title("Confusion matrix between S3 flags and new classification (with waveform data)")
 plt.xlabel('ice_sheet_snow_facies_flag_01_ku - 1')
 plt.ylabel('new classes (with waveform data)')
 plt.imshow(mat)
-plt.show()
+fig.savefig('figures/confusion_mat_new_class.jpg', bbox_inches='tight',dpi=120)
 
 
 # %% maps

@@ -9,7 +9,7 @@ import numpy as np
 
 
 CURRENT_FOLDER = path.dirname(os.path.abspath(__file__))
-PREPROC_FOLDER = path.join(CURRENT_FOLDER, "../../data/PREPROC_no_waveform")
+PREPROC_FOLDER = path.join(CURRENT_FOLDER, "../../data/PREPROC")
 
 def load_data():
     dfs = []

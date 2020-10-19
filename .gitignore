@@ -1,4 +1,5 @@
 data/
+*.mp4
 *.pyc
 .ipynb_checkpoints
 __pycache__

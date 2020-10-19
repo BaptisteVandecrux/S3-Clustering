@@ -47,43 +47,44 @@ df.groupby("ice_sheet_snow_facies_flag_01_ku").count()
 try:
     waveforms_ku = np.array(df[["waveform_20_ku_%d" % i for i in range(128)]].dropna())
 
-    plt.figure(figsize=(10, 10))
+    fig = plt.figure(figsize=(10, 10))
     plt.title("Waveform samples")
     plt.plot(waveforms_ku[0])
     plt.plot(waveforms_ku[10000])
     plt.plot(waveforms_ku[20000])
     plt.plot(waveforms_ku[30000])
     plt.plot(waveforms_ku[40000])
-    plt.show()
+    fig.savefig('figures/waveform_examples.jpg', bbox_inches='tight',dpi=120)
+
     
     # The mean wave
-    plt.figure(figsize=(10, 10))
+    fig = plt.figure(figsize=(10, 10))
     plt.title("Mean wave")
     plt.plot(waveforms_ku.mean(axis=0))
-    plt.show()
+    fig.savefig('figures/waveform_mean.jpg', bbox_inches='tight',dpi=120)
     
     # The samples show a varying amplitude. Let's plot the norm of the waveform as an histogram.
-    plt.figure(figsize=(10, 10))
+    fig = plt.figure(figsize=(10, 10))
     plt.title("Histogram of waveform amplitude")
     plt.hist(np.linalg.norm(waveforms_ku, axis=1), range=(0, 12000),  bins=100)
-    plt.show()
+    fig.savefig('figures/waveform_amplitude_histogram.jpg', bbox_inches='tight',dpi=120)
     
     # Waveforms have an amplitude that varies a lot. Plotting the normalized waveform will help gain insight into the shape of the waves.
     wave_norm = (waveforms_ku.T / np.linalg.norm(waveforms_ku, axis=1)).T
     wave_mean = wave_norm.mean(axis=0)
     wave_std = wave_norm.std(axis=0)
-    plt.figure(figsize=(10, 10))
+    fig = plt.figure(figsize=(10, 10))
     plt.title("Mean and deviation of normalised waveforms.")
     plt.plot(wave_mean)
     plt.plot(wave_mean - wave_std, "b--")
     plt.plot(wave_mean + wave_std, "b--")
-    plt.show()
+    fig.savefig('figures/waveform_normalization.jpg', bbox_inches='tight',dpi=120)
     
     # Or as a boxplot:
-    plt.figure(figsize=(10, 10))
+    fig = plt.figure(figsize=(10, 10))
     plt.title("Boxplot of normalized waveform")
     plt.boxplot(wave_norm, showfliers=False)
-    plt.show()
+    fig.savefig('figures/waveform_boxplot.jpg', bbox_inches='tight',dpi=120)
 except:
     pass
 
