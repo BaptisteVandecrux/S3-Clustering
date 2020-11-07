@@ -4,8 +4,6 @@ This work is based on:
 - Tran, N., Remy, F., Feng, H., & Femenias, P. (2008). Snow facies over ice sheets derived from Envisat active and passive observations. IEEE transactions on geoscience and remote sensing, 46(11), 3694-3708. https://doi.org/10.1109/TGRS.2008.2000818
 - Schweisthal, L. (2020) Remote sensing of Greenland ice sheet surface characteristics using Sentinel 3 satellites. MSc. Thesis, DTU Compute. https://doi.org/10.22008/FK2/CNQASU
 
-The original scripts can be found here: https://github.com/louis-schweisthal/master_thesis
-
 
 ## Installation
 
